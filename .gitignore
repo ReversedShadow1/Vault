@@ -1,0 +1,95 @@
+# ---------------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+
+# ---------------------------------------------------------------------
+# Virtual environments
+# ---------------------------------------------------------------------
+venv/
+.venv/
+env/
+ENV/
+
+# ---------------------------------------------------------------------
+# Vault data — never commit real vault files. These contain a user's
+# encrypted credentials; even encrypted, they don't belong in version
+# control (wrong tool for secret storage, and it's how a vault.db meant
+# for local testing quietly ends up in a public repo's history forever).
+# ---------------------------------------------------------------------
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.restored
+vault.db*
+
+# ---------------------------------------------------------------------
+# Sync server state — the persisted ML-DSA-65 signing key and the
+# per-vault authorization store (hashed API keys) live here. Neither
+# should ever be committed: the signing key is a live credential
+# (Section "Server signing key" in the final report), and while API
+# keys are stored hashed, there's no reason to publish the store either.
+# Encrypted backup blobs also land here and are similarly not meant for
+# version control.
+# ---------------------------------------------------------------------
+sync_storage/
+*.blob.json
+
+# ---------------------------------------------------------------------
+# liboqs build artifacts, if built inside the repo tree rather than
+# under $HOME as the README suggests
+# ---------------------------------------------------------------------
+liboqs/
+_oqs/
+
+# ---------------------------------------------------------------------
+# Test / static analysis / coverage output
+# ---------------------------------------------------------------------
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+bandit-report.*
+
+# ---------------------------------------------------------------------
+# Environment / local configuration
+# ---------------------------------------------------------------------
+.env
+.env.*
+*.local
+
+# ---------------------------------------------------------------------
+# Editors / IDEs
+# ---------------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ---------------------------------------------------------------------
+# OS cruft
+# ---------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---------------------------------------------------------------------
+# LaTeX build artifacts (final report)
+# ---------------------------------------------------------------------
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
